@@ -1,7 +1,10 @@
 import pandas as pd
+import os
 from sklearn.preprocessing import MinMaxScaler
 
-lag_df = pd.read_csv('C:/Users/hp pavilion/Desktop/EKOLAG/Datasets/Lagos_data_set.csv')
+DATA_PATH = os.path.join(os.path.dirname(__file__), 'Datasets/Lagos_data_set.csv')
+
+lag_df = pd.read_csv(DATA_PATH)
 raw_df = {'Waste': (lag_df['POPULATION'] * lag_df['PER CAPITA WASTE']) / 1000,
           'Population': lag_df['POPULATION'] / lag_df['LAND AREA'],
           'Rainfall': lag_df['ANNUAL RAINFALL'],
